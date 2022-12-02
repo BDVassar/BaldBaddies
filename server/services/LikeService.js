@@ -12,6 +12,11 @@ class LikeService {
     await like.populate('like', 'name picture')
     return like
   }
+  async getLikesByPostId(postId) {
+    const likes = await dbContext.Like.find({ postId }).populate('like', 'name picture')
+    return likes
+  }
+
 }
 
 export const likeService = new LikeService()
