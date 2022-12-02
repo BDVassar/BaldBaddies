@@ -8,7 +8,7 @@ export class CommentController extends BaseController {
         this.router
             .get('', this.getAll)
             .use(Auth0Provider.getAuthorizedUserInfo)
-            .post('', this.create)
+            .post('/:id', this.create)
     }
     async getAll(req, res, next) {
         try {
@@ -21,6 +21,7 @@ export class CommentController extends BaseController {
     async create(req, res, next) {
         try {
             req.body.userId = req.userInfo.id
+            req.body.postId = req.params.id
             const newComment = await commentService.create(req.body)
             return res.send(newComment)
         } catch (error) {
