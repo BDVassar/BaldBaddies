@@ -11,6 +11,7 @@ export class LikeController extends BaseController {
   async getAllLikes(req, res, next) {
     try {
       const likes = await likeService.getAllLikes()
+      return res.send(likes)
     } catch (error) {
       next(error)
     }
