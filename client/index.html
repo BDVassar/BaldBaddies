@@ -35,7 +35,13 @@
     </nav>
   </header>
   <main class="container-fluid">
+    <section class="row justify-content-end">
+      <div class="d-flex col-2">
+        <h1><i data-bs-toggle="modal" data-bs-target="#postForm" class="mdi mdi-pencil-outline"></i></h1>
+      </div>
+    </section>
     <section class="row p-2" id="posts">
+
       <!-- <div class="col-4">
         <div class="elevation-3">
           <img class="post-card" src="https://thiscatdoesnotexist.com" alt="post-image">
@@ -57,7 +63,37 @@
         <p><small>Made with 💖 by CodeWorks</small></p>
       </div>
     </div>
+    <div class="modal fade" id="postForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Post that Shine</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form onsubmit="app.postsController.createPost()">
+              <div class="mb-3">
+                <input type="text" class="form-control" id="postTitle" placeholder="Title">
+              </div>
+              <div class="mb-3">
+                <input type="url" class="form-control" id="postUrl" placeholder="That Bald head Url">
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" id="description" placeholder="Tell us about that pic">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
