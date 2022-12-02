@@ -9,9 +9,9 @@ class PostsService {
     appState.posts = res.data.map(p => new Post(p))
   }
 
-  async createPost() {
-    const res = await server.post('api/posts')
-    appState.posts = res.data.push(new Post(res.data))
+  async createPost(formData) {
+    const res = await server.post('api/posts', formData)
+    appState.posts.unshift(new Post(res.data))
     appState.emit('posts')
   }
 
