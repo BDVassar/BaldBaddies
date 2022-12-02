@@ -6,6 +6,11 @@ class LikeService {
     return likes
   }
 
+
+  async liked(body) {
+    const like = await dbContext.Like.create(body)
+    return like
+  }
 }
 
 export const likeService = new LikeService()
