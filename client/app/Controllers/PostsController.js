@@ -29,9 +29,10 @@ export class PostsController {
 
   async createPost() {
     try {
-      window.event.preventDefault
+      window.event.preventDefault()
       let form = window.event.target
       let formData = getFormData(form)
+      console.log(formData);
       await postsService.createPost(formData)
     } catch (error) {
       Pop.error(error.message)
