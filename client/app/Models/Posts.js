@@ -13,7 +13,7 @@ export class Post {
     return `
     <div class="col-12 col-md-4 p-3">   
         <div class="elevation-3">
-          <img class="row m-0 post-card" src="${this.imgUrl}" alt="post-image">
+          <img class="row m-0 post-card selectable" src="${this.imgUrl}" alt="post-image" data-bs-toggle="modal" data-bs-target="#postForm">
           <div class="row m-0 p-0">
             <i class="mdi mdi-thumb-up fs-1 selectable" onclick="app.likesController.likePost(${this.id})"></i>
           </div>
