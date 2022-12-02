@@ -2,11 +2,11 @@ import { dbContext } from "../db/DbContext.js"
 
 class CommentService {
     async getAll() {
-        const comments = await dbContext.Comments.find().populate('comments')
+        const comments = await dbContext.Comment.find()
         return comments
     }
     async create(commentData) {
-        const newComment = await dbContext.Comments.create(commentData)
+        const newComment = await dbContext.Comment.create(commentData)
         return newComment
     }
 }

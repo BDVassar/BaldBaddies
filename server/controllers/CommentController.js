@@ -1,19 +1,20 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
+import { commentService } from "../services/CommentService.js";
 import BaseController from "../utils/BaseController";
 
 export class CommentController extends BaseController {
     constructor() {
         super('api/comments')
         this.router
-        .get(', this.getAll')
-        .use(Auth0Provider.getAuthorizedUserInfo)
-        .post('', this.create)
+            .get(', this.getAll')
+            .use(Auth0Provider.getAuthorizedUserInfo)
+            .post('', this.create)
     }
     async getAll(req, res, next) {
         try {
             const comments = await commentService.getAll()
             return res.send(comments)
-        } catch (error){
+        } catch (error) {
             next(error)
         }
     }
