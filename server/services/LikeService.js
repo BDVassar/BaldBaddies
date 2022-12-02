@@ -9,6 +9,7 @@ class LikeService {
 
   async liked(body) {
     const like = await dbContext.Like.create(body)
+    await like.populate('like', 'name picture')
     return like
   }
 }
