@@ -13,11 +13,9 @@ export class Post {
     return `
     <div class="col-12 col-md-4 p-3">   
         <div class="elevation-3">
-          <img class="post-card" src="${this.imgUrl}" alt="post-image">
-          <div class="d-flex justify-content-between">
-            <i class="mdi mdi-chat fs-1 selectable" data-bs-toggle="modal" data-bs-target="#postForm"></i>
-            <i class="mdi mdi-thumb-up fs-1 selectable" onclick=""></i>
-
+          <img class="row m-0 post-card" src="${this.imgUrl}" alt="post-image">
+          <div class="row m-0 p-0">
+            <i class="mdi mdi-thumb-up fs-1 selectable" onclick="app.likesController.likePost(${this.id})"></i>
           </div>
 
         </div>
