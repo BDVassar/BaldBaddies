@@ -1,4 +1,13 @@
-class CommentService {
+import { dbContext } from "../db/DbContext.js"
 
+class CommentService {
+    async getAll() {
+        const comments = await dbContext.Comment.find()
+        return comments
+    }
+    async create(commentData) {
+        const newComment = await dbContext.Comment.create(commentData)
+        return newComment
+    }
 }
 export const commentService = new CommentService()
