@@ -1,4 +1,5 @@
 import { appState } from "../AppState.js";
+import { Post } from "../Models/Posts.js";
 import { postsService } from "../Services/PostsService.js";
 import { getFormData } from "../Utils/FormHandler.js";
 import { Pop } from "../Utils/Pop.js";
@@ -10,6 +11,7 @@ function _drawPost() {
   appState.posts.forEach(p => template += p.PostTemplate)
   setHTML('posts', template)
 }
+
 
 
 export class PostsController {
@@ -37,5 +39,9 @@ export class PostsController {
     } catch (error) {
       Pop.error(error.message)
     }
+  }
+
+  postForm() {
+    setHTML('modalContent', Post.postForm())
   }
 }
