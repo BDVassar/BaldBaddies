@@ -7,7 +7,7 @@ export const LikeSchema = new Schema({
 
 })
 
-LikeSchema.virtual('like'{
+LikeSchema.virtual('like', {
   localField: 'userId',
   foreignField: '_id',
   justOne: true,
