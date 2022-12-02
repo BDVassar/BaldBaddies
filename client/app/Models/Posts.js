@@ -11,7 +11,7 @@ export class Post {
 
   get PostTemplate() {
     return `
-    <div class="col-4 p-4">   
+    <div class="col-12 col-md-4 p-4">   
         <div class="elevation-3">
           <img class="post-card" src="${this.imgUrl}" alt="post-image">
           <div class="d-flex justify-content-between">
