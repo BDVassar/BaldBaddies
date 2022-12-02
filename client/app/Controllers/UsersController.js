@@ -17,4 +17,5 @@ export class UsersController {
       Pop.error(error.message)
     }
   }
+
 }
