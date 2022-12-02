@@ -13742,4 +13742,11 @@ main {
   flex-grow: 1;
 }
 
+.post-card {
+  height: 45vh;
+  width: 100%;
+  outline: 1px solid black;
+  object-fit: cover;
+}
+
 /*# sourceMappingURL=main.css.map */
