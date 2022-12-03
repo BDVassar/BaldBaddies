@@ -27,10 +27,10 @@ export class Post {
     return /*html*/ `
     <div class="modal-header">
 		<h1
-		    class="modal-title fs-5"
-		    id="exampleModalToggleLabel"
+		  class="modal-title fs-5 text-dark"
+		  id="exampleModalToggleLabel"
 		>
-		Title
+		${this.title}
 		</h1>
 		<button
 			type="button"
@@ -42,14 +42,15 @@ export class Post {
 	<div class="modal-body">
 		<div class="row">
 			<img src="${this.imgUrl}" />
-			<p>${this.des}</p>
+			<p class="text-dark">${this.des}</p>
 			<div class="row d-flex justify-content-around">
-				<span>Comments</span>
+				<span class="text-dark">Comments</span>
 				<span>
                     <button
 						class="btn btn-primary mdi mdi-chat-plus"
 						data-bs-target="#exampleModalToggle2"
 						data-bs-toggle="modal"
+            onclick="app.CommentsController.PostComment('${this.id}')"
 					></button>
                 </span>
 			</div>
