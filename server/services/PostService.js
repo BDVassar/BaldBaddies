@@ -14,9 +14,6 @@ class PostService {
   async update(postId, body, userId) {
     const post = await dbContext.Post.findById(postId)
     if (!post) throw new BadRequest(`No post at id ${postId}`)
-    if (userId != post.creatorId.toString()) {
-        throw new Forbidden(`You are not authorized to edit this post`)
-    }
     post.title = body.title
     post.imgUrl = body.imgUrl
     post.des = body.des

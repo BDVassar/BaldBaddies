@@ -8,7 +8,6 @@ import { setHTML } from "../Utils/Writer.js";
 
 function _drawPost() {
   let template = ''
-console.log(appState.posts)
   appState.posts.forEach(p => template += p.PostTemplate)
   setHTML('posts', template)
 }
@@ -21,9 +20,9 @@ function _drawActive() {
 
 export class PostController {
   constructor() {
-    console.log('sup posters');
     appState.on('posts', _drawPost)
     appState.on('activePost', _drawActive)
+    appState.on('activePost', this.editPostForm)
     this.getPost()
   }
 
@@ -50,6 +49,11 @@ export class PostController {
   postForm() {
     setHTML('modalContent', Post.postForm())
   }
+  editPostForm() {
+    let post = appState.activePost
+    console.log(post)
+    setHTML('modalContent', Post.editPostForm(post))
+  }
 
   async setActive(activeId) {
     try {
@@ -60,7 +64,18 @@ export class PostController {
     }
   }
 
-  
+  async editPostById(postId) {
+    try {
+        window.event.preventDefault()
+        const form = window.event.target
+        const postData = getFormData(form)
+        console.log(postData)
+        await postService.editPostById(postId, postData)
+    } catch (error) {
+        Pop.error(error.message)
+        console.error(error)
+    }
+  }
 
 
 }

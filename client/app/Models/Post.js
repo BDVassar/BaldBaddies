@@ -20,7 +20,7 @@ export class Post {
             <div class="row m-0 p-0">
                 <div class="col-2 d-flex fs-1 selectable">${this.likeCount}
                     <i class="mdi mdi-thumb-up" onclick="app.likeController.likePost('${this.id}')"></i>
-                    <i class="mdi mdi-pencil-outline" onclick="app.postController.editPostById('${this.id}')"></i> 
+                    <i class="mdi mdi-pencil-outline" data-bs-toggle="modal" data-bs-target="#postForm" onclick="app.postController.editPostForm()"></i> 
                 </div>
             </div>
         </div>
@@ -122,7 +122,10 @@ export class Post {
     </div>
     `
   }
-  static editPostForm() {
+  static editPostForm(post) {
+    if (!post) {
+        post = new Post({})
+      }
     return /*html*/ `
     <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Post that Shine</h1>
@@ -131,13 +134,13 @@ export class Post {
     <div class="modal-body">
         <form onsubmit="app.postController.editPostById('${this.id}')">
             <div class="mb-3">
-                <input type="text" class="form-control" id="title" name="title" value="${this.title}">
+                <input type="text" class="form-control" id="title" name="title" value="${post.title}">
             </div>
             <div class="mb-3">
-                <input type="url" class="form-control" id="imgUrl" name="imgUrl" value="${this.imgUrl}">
+                <input type="url" class="form-control" id="imgUrl" name="imgUrl" value="${post.imgUrl}">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" id="des" name="des" value="${this.des}">
+                <input type="text" class="form-control" id="des" name="des" value="${post.des}">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

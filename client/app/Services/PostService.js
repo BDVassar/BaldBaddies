@@ -18,8 +18,13 @@ class PostService {
     appState.emit('posts')
   }
 
-  
-
+async editPostById(postId, postData) {
+    let foundPost = appState.posts.find(post => post.id === postId)
+    await server.put('api/posts/' + foundPost, postData)
+    this.getPost()
+}
+    
+    
 }
 
 export const postService = new PostService()
