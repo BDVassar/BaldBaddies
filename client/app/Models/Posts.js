@@ -8,6 +8,7 @@ export class Post {
     this.imgUrl = data.imgUrl
     this.des = data.des
     this.likeCount = data.likeCount || 0
+    console.log(data)
   }
 
   get PostTemplate() {

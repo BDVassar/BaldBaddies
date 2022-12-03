@@ -3,9 +3,6 @@ import { appState } from "../AppState.js"
 import { server } from "./AxiosService.js"
 
 class LikesService {
-  // getLikes() {
-  //   const res = await server.get(`api/posts/${appState.}`)
-  // }
   async likePost(postId) {
     const res = await server.post('api/likes', { postId })
     console.log(res.data);
