@@ -64,7 +64,7 @@ export class Post {
     `
   }
 
-get activeCommentTemplate() {
+  get activeCommentTemplate() {
     return `
     <div class="modal-header">
 							<h1
@@ -91,7 +91,7 @@ get activeCommentTemplate() {
 							</button>
 						</div>
     `
-}
+  }
 
 
   static postForm() {
