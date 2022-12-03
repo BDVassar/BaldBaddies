@@ -3,8 +3,9 @@ import { Post } from "../Models/Posts.js"
 import { server } from "./AxiosService.js"
 
 class PostsService {
-  setActive(activeId) {
-    appState.activePost = appState.posts.find(p => p.id = activeId)
+  async setActive(activeId) {
+    const foundPost = appState.posts.find(p => p.id == activeId)
+    appState.activePost = foundPost
   }
   async getPost() {
     const res = await server.get('api/posts')

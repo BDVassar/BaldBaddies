@@ -51,10 +51,10 @@ export class PostsController {
     setHTML('modalContent', Post.postForm())
   }
 
-  setActive(activeId) {
+  async setActive(activeId) {
     try {
       console.log(activeId)
-      postsService.setActive(activeId)
+      await postsService.setActive(activeId)
     } catch (error) {
       Pop.error(error)
       console.log(error.message)
