@@ -1,5 +1,5 @@
 import { appState } from "../AppState.js"
-import { usersService } from "../Services/UserService.js"
+import { userService } from "../Services/UserService.js"
 import { Pop } from "../Utils/Pop.js"
 
 

@@ -1,4 +1,4 @@
-import { likesService } from "../Services/LikeService.js";
+import { likeService } from "../Services/LikeService.js";
 import { Pop } from "../Utils/Pop.js";
 
 export class LikeController {
