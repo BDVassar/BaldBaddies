@@ -13,16 +13,13 @@ export class Post {
   get PostTemplate() {
     return `
     <div class="col-12 col-md-4 p-3">   
-        <div class="elevation-3">
-          <img class="post-card" src="${this.imgUrl}" alt="post-image">
-          <div class="d-flex justify-content-between">
-            <i class="mdi mdi-chat fs-1 selectable" data-bs-toggle="modal" data-bs-target="#postForm"></i>
-            <i class="mdi mdi-thumb-up fs-1 selectable" onclick=""></i>
-
+        <div class="card elevation-3">
+          <img class="row m-0 post-card selectable rounded-top" src="${this.imgUrl}" alt="post-image" data-bs-toggle="modal" data-bs-target="#postForm">
+          <div class="row m-0 p-0">
+            <i class="mdi mdi-thumb-up fs-1 selectable" onclick="app.likesController.likePost(${this.id})"></i>
           </div>
-
         </div>
-      </div>
+    </div>
     `
   }
 
@@ -48,10 +45,6 @@ export class Post {
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
   </div>
     `
   }
