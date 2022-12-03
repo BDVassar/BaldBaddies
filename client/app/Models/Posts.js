@@ -88,7 +88,7 @@ export class Post {
 								data-bs-target="#postForm"
 								data-bs-toggle="modal"
 							>
-								Back to first
+								Return to Post
 							</button>
 						</div>
     `
