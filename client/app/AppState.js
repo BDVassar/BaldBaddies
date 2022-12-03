@@ -10,13 +10,13 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Value').Value[]} */
   values = []
 
-  /** @type {import('./Models/Users').User[]} */
+  /** @type {import('./Models/User').User[]} */
   users = []
   socketData = []
 
   /** @type {import('./Models/Posts').Post[]} */
   posts = []
-  /** @type {import('./Models/Likes').Like[]} */
+  /** @type {import('./Models/Like').Like[]} */
   likes = []
   /** @type {import('./Models/Posts').Post|null} */
   activePost = null
