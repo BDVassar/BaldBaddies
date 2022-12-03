@@ -1,6 +1,6 @@
 import { appState } from "../AppState.js";
-import { Post } from "../Models/Posts.js";
-import { postsService } from "../Services/PostsService.js";
+import { Post } from "../Models/Post.js";
+import { postService } from "../Services/PostService.js";
 import { getFormData } from "../Utils/FormHandler.js";
 import { Pop } from "../Utils/Pop.js";
 import { setHTML } from "../Utils/Writer.js";
@@ -8,6 +8,7 @@ import { setHTML } from "../Utils/Writer.js";
 
 function _drawPost() {
   let template = ''
+console.log(appState.posts)
   appState.posts.forEach(p => template += p.PostTemplate)
   setHTML('posts', template)
 }
@@ -18,9 +19,7 @@ function _drawActive() {
   setHTML('modalComment', activePost.activeCommentTemplate)
 }
 
-
-
-export class PostsController {
+export class PostController {
   constructor() {
     console.log('sup posters');
     appState.on('posts', _drawPost)
@@ -30,7 +29,7 @@ export class PostsController {
 
   async getPost() {
     try {
-      await postsService.getPost()
+      await postService.getPost()
     } catch (error) {
       Pop.error(error.message)
     }
@@ -42,7 +41,7 @@ export class PostsController {
       let form = window.event.target
       let formData = getFormData(form)
       console.log(formData);
-      await postsService.createPost(formData)
+      await postService.createPost(formData)
     } catch (error) {
       Pop.error(error.message)
     }
@@ -54,13 +53,14 @@ export class PostsController {
 
   async setActive(activeId) {
     try {
-      console.log(activeId)
-      await postsService.setActive(activeId)
+      await postService.setActive(activeId)
     } catch (error) {
       Pop.error(error)
       console.log(error.message)
     }
   }
+
+  
 
 
 }

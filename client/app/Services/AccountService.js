@@ -7,7 +7,7 @@ class AccountService {
   async getAccount() {
     try {
       const res = await server.get('/account')
-      appState.account = new Account(res.data)
+      appState.account = res.data
     } catch (err) {
       logger.error(err)
     }
@@ -16,6 +16,7 @@ class AccountService {
   async editAccount(accountData) {
     const res = await server.put('/account', accountData)
     appState.account = new Account(res.data)
+
   }
 
 }

@@ -3,7 +3,6 @@ import { Pop } from "../Utils/Pop.js";
 
 export class LikeController {
   constructor() {
-    console.log('like controller connected');
   }
 
   async likePost(postId) {

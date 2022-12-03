@@ -1,6 +1,6 @@
 import { AuthController } from './Controllers/AuthController.js';
 import { LikeController } from "./Controllers/LikeController.js";
-import { PostsController } from "./Controllers/PostsController.js";
+import { PostController } from "./Controllers/PostController.js";
 import { UserController } from "./Controllers/UserController.js";
 import { ValuesController } from './Controllers/ValuesController.js';
 
@@ -9,7 +9,7 @@ class App {
   valuesController = new ValuesController();
 
   userController = new UserController();
-  postsController = new PostsController();
+  postController = new PostController();
 
   likeController = new LikeController();
 }

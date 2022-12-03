@@ -1,25 +1,28 @@
+import { appState } from "../AppState.js"
 
 
 export class Post {
   constructor(data) {
-    this.userId = data.userId
+    this.creatorId = data.creatorId
     this.id = data.id
     this.title = data.title
     this.imgUrl = data.imgUrl
     this.des = data.des
     this.likeCount = data.likeCount || 0
-    console.log(data)
+    this.account = data.Account
   }
 
   get PostTemplate() {
-    return `
+    return /*html*/ `
     <div class="col-12 col-md-4 p-3">   
         <div class="card elevation-3">
-          <img class="row m-0 post-card selectable rounded-top" src="${this.imgUrl}" alt="post-image" data-bs-toggle="modal" data-bs-target="#postForm" onclick="app.postsController.setActive('${this.id}')">
-          <div class="row m-0 p-0">
-            <div class="col-2 d-flex fs-1 selectable">${this.likeCount}<i class="mdi mdi-thumb-up" onclick="app.likesController.likePost('${this.id}')"></i></div>
-          </div>
-          
+            <img class="row m-0 post-card selectable rounded-top" src="${this.imgUrl}" alt="post-image" data-bs-toggle="modal" data-bs-target="#postForm" onclick="app.postController.setActive('${this.id}')">
+            <div class="row m-0 p-0">
+                <div class="col-2 d-flex fs-1 selectable">${this.likeCount}
+                    <i class="mdi mdi-thumb-up" onclick="app.likeController.likePost('${this.id}')"></i>
+                    <i class="mdi mdi-pencil-outline" onclick="app.postController.editPostById('${this.id}')"></i> 
+                </div>
+            </div>
         </div>
     </div>
     `
@@ -104,7 +107,7 @@ export class Post {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-        <form onsubmit="app.postsController.createPost()">
+        <form onsubmit="app.postController.createPost()">
             <div class="mb-3">
                 <input type="text" class="form-control" id="title" name="title" placeholder="Title">
             </div>
@@ -113,6 +116,28 @@ export class Post {
             </div>
             <div class="mb-3">
                 <input type="text" class="form-control" id="des" name="des" placeholder="Tell us about that pic">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    `
+  }
+  static editPostForm() {
+    return /*html*/ `
+    <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Post that Shine</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <form onsubmit="app.postController.editPostById('${this.id}')">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="title" name="title" value="${this.title}">
+            </div>
+            <div class="mb-3">
+                <input type="url" class="form-control" id="imgUrl" name="imgUrl" value="${this.imgUrl}">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="des" name="des" value="${this.des}">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

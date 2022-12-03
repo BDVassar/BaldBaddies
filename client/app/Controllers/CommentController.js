@@ -1,7 +1,7 @@
-import { commentsService } from "../Services/CommentsService.js";
+import { commentService } from "../Services/CommentService.js";
 import { Pop } from "../Utils/Pop.js";
 
-export class CommentsController {
+export class CommentController {
   constructor() {
 
   }
