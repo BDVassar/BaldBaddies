@@ -65,55 +65,56 @@ export class Post {
   }
 
   get activeCommentTemplate() {
-    return `
+    return /*html*/ `
     <div class="modal-header">
-							<h1
-								class="modal-title fs-5"
-								id="exampleModalToggleLabel2"
-							>
-								Modal 2
-							</h1>
-							<button
-								type="button"
-								class="btn-close"
-								data-bs-dismiss="modal"
-								aria-label="Close"
-							></button>
-						</div>
-						<div class="modal-body"></div>
-						<div class="modal-footer">
-							<button
-								class="btn btn-primary"
-								data-bs-target="#postForm"
-								data-bs-toggle="modal"
-							>
-								Return to Post
-							</button>
-						</div>
+		<h1
+			class="modal-title fs-5"
+			id="exampleModalToggleLabel2"
+		>
+		Modal 2
+		</h1>
+		<button
+			type="button"
+			class="btn-close"
+			data-bs-dismiss="modal"
+			aria-label="Close"
+		>
+        </button>
+	</div>
+	<div class="modal-body"></div>
+	<div class="modal-footer">
+		<button
+			class="btn btn-primary"
+			data-bs-target="#postForm"
+			data-bs-toggle="modal"
+		>
+			Return to Post
+		</button>
+	</div>
     `
   }
 
 
   static postForm() {
-    return `
+    return /*html*/ `
     <div class="modal-header">
-    <h1 class="modal-title fs-5" id="exampleModalLabel">Post that Shine</h1>
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-  </div>
-  <div class="modal-body">
-    <form onsubmit="app.postsController.createPost()">
-      <div class="mb-3">
-        <input type="text" class="form-control" id="title" name="title" placeholder="Title">
-      </div>
-      <div class="mb-3">
-        <input type="url" class="form-control" id="imgUrl" name="imgUrl" placeholder="That Bald head Url">
-      </div>
-      <div class="mb-3">
-        <input type="text" class="form-control" id="des" name="des" placeholder="Tell us about that pic">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Post that Shine</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <form onsubmit="app.postsController.createPost()">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+            </div>
+            <div class="mb-3">
+                <input type="url" class="form-control" id="imgUrl" name="imgUrl" placeholder="That Bald head Url">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="des" name="des" placeholder="Tell us about that pic">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
     `
   }
 
