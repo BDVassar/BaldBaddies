@@ -12,12 +12,18 @@ function _drawPost() {
   setHTML('posts', template)
 }
 
+function _drawActive() {
+  let activePost = appState.activePost
+  setHTML('modalContent', activePost.activePostTemplate)
+}
+
 
 
 export class PostsController {
   constructor() {
     console.log('sup posters');
     appState.on('posts', _drawPost)
+    appState.on('activePost', _drawActive)
     this.getPost()
   }
 
@@ -43,5 +49,15 @@ export class PostsController {
 
   postForm() {
     setHTML('modalContent', Post.postForm())
+  }
+
+  async setActive(activeId) {
+    try {
+      console.log(activeId)
+      await postsService.setActive(activeId)
+    } catch (error) {
+      Pop.error(error)
+      console.log(error.message)
+    }
   }
 }
