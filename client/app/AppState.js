@@ -18,6 +18,8 @@ class AppState extends EventEmitter {
   posts = []
   /** @type {import('./Models/Likes').Like[]} */
   likes = []
+  /** @type {import('./Models/Posts').Post|null} */
+  activePost = null
 }
 
 export const appState = new Proxy(new AppState(), {
