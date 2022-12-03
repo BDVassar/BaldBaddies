@@ -16,7 +16,7 @@ export class PostController extends BaseController {
 
   async getAllPost(req, res, next) {
     try {
-      const posts = await postService.getAllPost()
+      const posts = await postService.getAllPost(req.query)
       return res.send(posts)
     } catch (error) {
       next(error)
