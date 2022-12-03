@@ -15,6 +15,7 @@ function _drawPost() {
 function _drawActive() {
   let activePost = appState.activePost
   setHTML('modalContent', activePost.activePostTemplate)
+  setHTML('modalComment', activePost.activeCommentTemplate)
 }
 
 
