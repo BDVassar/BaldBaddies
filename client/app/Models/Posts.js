@@ -41,8 +41,8 @@ export class Post {
 	</div>
 	<div class="modal-body">
 		<div class="row">
-			<img src="https://thiscatdoesnotexist.com" />
-			<p>Description</p>
+			<img src="${this.imgUrl}" />
+			<p>${this.des}</p>
 			<div class="row d-flex justify-content-around">
 				<span>Comments</span>
 				<span>
