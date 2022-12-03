@@ -1,4 +1,5 @@
 import { AuthController } from './Controllers/AuthController.js';
+import { LikesController } from "./Controllers/LikesController.js";
 import { PostsController } from "./Controllers/PostsController.js";
 import { UsersController } from "./Controllers/UsersController.js";
 import { ValuesController } from './Controllers/ValuesController.js';
@@ -9,6 +10,8 @@ class App {
 
   usersController = new UsersController();
   postsController = new PostsController();
+
+  likesController = new LikesController();
 }
 
 // @ts-ignore

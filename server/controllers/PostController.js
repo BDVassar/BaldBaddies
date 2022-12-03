@@ -32,6 +32,8 @@ export class PostController extends BaseController {
     }
   }
 
+
+
   async getLikesByPostId(req, res, next) {
     try {
       const likes = await likeService.getLikesByPostId(req.params.postId)

@@ -7,6 +7,7 @@ export class Post {
     this.title = data.title
     this.imgUrl = data.imgUrl
     this.des = data.des
+    this.likeCount = data.likeCount
   }
 
   get PostTemplate() {

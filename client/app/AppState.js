@@ -16,6 +16,8 @@ class AppState extends EventEmitter {
 
   /** @type {import('./Models/Posts').Post[]} */
   posts = []
+  /** @type {import('./Models/Likes').Like[]} */
+  likes = []
 }
 
 export const appState = new Proxy(new AppState(), {
