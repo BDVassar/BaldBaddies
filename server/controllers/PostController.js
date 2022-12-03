@@ -11,6 +11,8 @@ export class PostController extends BaseController {
       .get('/:postId', this.getLikesByPostId)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createPost)
+      .put('/:postId', this.update)
+      .delete('/:postId, this.remove')
 
   }
 
@@ -22,24 +24,37 @@ export class PostController extends BaseController {
       next(error)
     }
   }
-  async createPost(req, res, next) {
-    try {
-      req.body.creatorId = req.userInfo.id
-      const post = await postService.createPost(req.body)
-      return res.send(post)
-    } catch (error) {
-      next(error)
-    }
-  }
-
-
-
   async getLikesByPostId(req, res, next) {
-    try {
-      const likes = await likeService.getLikesByPostId(req.params.postId)
-      return res.send(likes)
-    } catch (error) {
-      next(error)
+      try {
+          const likes = await likeService.getLikesByPostId(req.params.postId)
+          return res.send(likes)
+        } catch (error) {
+            next(error)
+        }
     }
-  }
+    async createPost(req, res, next) {
+      try {
+        req.body.creatorId = req.userInfo.id
+        const post = await postService.createPost(req.body)
+        return res.send(post)
+      } catch (error) {
+        next(error)
+      }
+    }
+    async update(req, res, next) {
+        try {
+            const post = await postService.update(req.params.postId, req.body, req.userInfo.postId)
+            return res.send(post)
+        } catch (error) {
+            next(error)
+        }
+    }
+    async remove(req, res, next) {
+        try {
+            const message = await postService.remove(req.params.postId, req.userInfo)
+            return res.send(message)
+        } catch (error) {
+            next(error)
+        }
+    }
 }
