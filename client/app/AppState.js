@@ -1,5 +1,4 @@
 import { dev } from './env.js'
-import { Post } from "./Models/Posts"
 import { EventEmitter } from './Utils/EventEmitter.js'
 import { isValidProp } from './Utils/isValidProp.js'
 
@@ -15,10 +14,8 @@ class AppState extends EventEmitter {
   users = []
   socketData = []
 
-  // /** @type {import('./Models/Posts').Post[]} */
-  posts = [new Post([])]
-
-  activePost = new Post(null)
+  /** @type {import('./Models/Posts').Post[]} */
+  posts = []
 }
 
 export const appState = new Proxy(new AppState(), {
