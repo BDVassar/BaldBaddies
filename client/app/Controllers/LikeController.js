@@ -1,14 +1,14 @@
-import { likesService } from "../Services/LikesService.js";
+import { likesService } from "../Services/LikeService.js";
 import { Pop } from "../Utils/Pop.js";
 
-export class LikesController {
+export class LikeController {
   constructor() {
     console.log('like controller connected');
   }
 
   async likePost(postId) {
     try {
-      await likesService.likePost(postId)
+      await likeService.likePost(postId)
     } catch (error) {
       Pop.error(error.message)
     }
