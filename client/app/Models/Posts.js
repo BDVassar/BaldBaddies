@@ -31,7 +31,7 @@ export class Post {
           </div>
           <div class="modal-body">
             <div class="row">
-              <img src="${this.imgUrl}">
+              <img src="https://thiscatdoesnotexist.com">
               <p>Description</p>
               <div class="row d-flex justify-content-around">
                 <span>Comments</span>
@@ -66,7 +66,6 @@ export class Post {
         </div>
       </div>
     </div>
-    <a class="btn btn-primary" data-bs-toggle="modal" href="#postForm" role="button">Open first modal</a>
     `
   }
 
