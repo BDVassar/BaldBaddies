@@ -50,7 +50,6 @@ export class Post {
 						class="btn btn-primary mdi mdi-chat-plus"
 						data-bs-target="#exampleModalToggle2"
 						data-bs-toggle="modal"
-            onclick="app.CommentsController.PostComment('${this.id}')"
 					></button>
                 </span>
 			</div>
