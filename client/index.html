@@ -40,7 +40,7 @@
       <div class="d-flex col-2">
         <h1>
           <i data-bs-toggle="modal" data-bs-target="#postForm" onclick="app.postsController.postForm()"
-            class="mdi mdi-pencil-outline selectable"></i>
+            class="mdi mdi-plus-box-multiple-outline"></i>
         </h1>
       </div>
     </section>
@@ -82,14 +82,11 @@
                     data-bs-toggle="modal"></button></span>
               </div>
               <div id="list-item" class="list-group list-group-flush">
-
               </div>
-
             </div>
           </div>
         </div>
         <div class="modal-footer">
-
         </div>
       </div>
     </div>
@@ -106,14 +103,13 @@
 
           </div>
           <div class="modal-footer">
-            <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to
+            <button class="btn btn-primary" data-bs-target="#postForm" data-bs-toggle="modal">Back to
               first</button>
           </div>
         </div>
       </div>
     </div>
-    <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
-
+    <a class="btn btn-primary" data-bs-toggle="modal" href="#postForm" role="button">Open first modal</a>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
