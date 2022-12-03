@@ -7,7 +7,7 @@ export class Post {
     this.title = data.title
     this.imgUrl = data.imgUrl
     this.des = data.des
-    this.likeCount = data.likeCount
+    this.likeCount = data.likeCount || 0
   }
 
   get PostTemplate() {
@@ -16,7 +16,7 @@ export class Post {
         <div class="card elevation-3">
           <img class="row m-0 post-card selectable rounded-top" src="${this.imgUrl}" alt="post-image" data-bs-toggle="modal" data-bs-target="#postForm">
           <div class="row m-0 p-0">
-            <i class="mdi mdi-thumb-up fs-1 selectable" onclick="app.likesController.likePost(${this.id})"></i>
+            <div class="col-2 fs-1 selectable">${this.likeCount}<i class="mdi mdi-thumb-up" onclick="app.likesController.likePost('${this.id}')"></i></div>
           </div>
         </div>
     </div>
