@@ -43,7 +43,7 @@ export class PostController extends BaseController {
     }
     async update(req, res, next) {
         try {
-            const post = await postService.update(req.params.postId, req.body, req.userInfo.postId)
+            const post = await postService.update(req.params.postId, req.body, req.userInfo.id)
             return res.send(post)
         } catch (error) {
             next(error)

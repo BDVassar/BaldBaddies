@@ -19,6 +19,7 @@ export class Post {
           <div class="row m-0 p-0">
             <div class="col-2 d-flex fs-1 selectable">${this.likeCount}<i class="mdi mdi-thumb-up" onclick="app.likesController.likePost('${this.id}')"></i></div>
           </div>
+          
         </div>
     </div>
     `
