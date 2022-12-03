@@ -15,3 +15,10 @@ PostSchema.virtual('Account', {
   ref: 'Account',
   foreignField: '_id'
 })
+
+PostSchema.virtual('likeCount', {
+  localField: '_id',
+  foreignField: 'postId',
+  ref: 'Like',
+  count: true
+})
