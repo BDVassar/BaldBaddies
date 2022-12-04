@@ -1,17 +1,17 @@
 import { AuthController } from './Controllers/AuthController.js';
-import { LikesController } from "./Controllers/LikesController.js";
-import { PostsController } from "./Controllers/PostsController.js";
-import { UsersController } from "./Controllers/UsersController.js";
+import { LikeController } from "./Controllers/LikeController.js";
+import { PostController } from "./Controllers/PostController.js";
+import { UserController } from "./Controllers/UserController.js";
 import { ValuesController } from './Controllers/ValuesController.js';
 
 class App {
   authController = new AuthController();
   valuesController = new ValuesController();
 
-  usersController = new UsersController();
-  postsController = new PostsController();
+  userController = new UserController();
+  postController = new PostController();
 
-  likesController = new LikesController();
+  likeController = new LikeController();
 }
 
 // @ts-ignore

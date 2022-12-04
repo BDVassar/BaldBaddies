@@ -1,10 +1,10 @@
 import { appState } from "../AppState.js"
-import { usersService } from "../Services/UsersService.js"
+import { userService } from "../Services/UserService.js"
 import { Pop } from "../Utils/Pop.js"
 
 
 
-export class UsersController {
+export class UserController {
   constructor() {
     console.log('sup baddies')
     appState.on('users', this.getUsers)
@@ -12,7 +12,7 @@ export class UsersController {
 
   async getUsers() {
     try {
-      await usersService.getUsers()
+      await userService.getUsers()
     } catch (error) {
       Pop.error(error.message)
     }

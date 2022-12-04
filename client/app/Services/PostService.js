@@ -1,15 +1,14 @@
 import { appState } from "../AppState.js"
-import { Post } from "../Models/Posts.js"
+import { Post } from "../Models/Post.js"
 import { server } from "./AxiosService.js"
 
-class PostsService {
+class PostService {
   async setActive(activeId) {
     const foundPost = appState.posts.find(p => p.id == activeId)
     appState.activePost = foundPost
   }
   async getPost() {
     const res = await server.get('api/posts')
-    console.log(res.data)
     appState.posts = res.data.map(p => new Post(p))
   }
 
@@ -19,7 +18,13 @@ class PostsService {
     appState.emit('posts')
   }
 
-
+async editPostById(postId, postData) {
+    let foundPost = appState.posts.find(post => post.id === postId)
+    await server.put('api/posts/' + foundPost, postData)
+    this.getPost()
+}
+    
+    
 }
 
-export const postsService = new PostsService()
+export const postService = new PostService()
