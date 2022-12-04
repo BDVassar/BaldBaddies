@@ -8,6 +8,7 @@ export class Post {
     this.imgUrl = data.imgUrl
     this.des = data.des
     this.likeCount = data.likeCount || 0
+    this.comments = data.Comments
     console.log(data)
   }
 
@@ -25,7 +26,7 @@ export class Post {
   }
 
   get activePostTemplate() {
-    return /*html*/ `
+    return `
     <div class="modal-header">
 		<h1
 		  class="modal-title fs-5 text-dark"
@@ -45,7 +46,7 @@ export class Post {
 			<img src="${this.imgUrl}" />
 			<p class="text-dark">${this.des}</p>
 			<div class="row d-flex justify-content-around">
-				<span class="text-dark">Comments</span>
+				<span class="text-dark">${this.Comments}</span>
 				<span>
                     <button
 						class="btn btn-primary mdi mdi-chat-plus"
@@ -116,6 +117,14 @@ export class Post {
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+    `
+  }
+
+  // TODO fix later
+  get Comments() {
+    let template = ''
+    this.comments.forEach
+    return `template here
     `
   }
 
